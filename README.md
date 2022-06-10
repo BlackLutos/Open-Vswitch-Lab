@@ -7,3 +7,11 @@ Practice for ovs
 ```
 $ ovs-vsctl --may-exist add-br br0
 ```
+* Delete Bridge
+```
+$ ovs-vsctl --if-exists del-br br0
+```
+* List Bridge
+```
+$ ovs-vsctl list-br
+```
