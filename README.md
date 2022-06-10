@@ -26,3 +26,18 @@ $ ip netns add ns01
 ```
 $ ip netns del ns01
 ```
+### Create Veth to connect bridge and namespace
+
+* Create Veth pair
+```
+$ ip link add veth01 type veth peer name veth02
+```
+* Connect Namespace
+```
+$ ip link set veth01 netns ns01
+```
+* Connect bridge and enable port
+```
+$ ovs-vsctl add-port br-int veth02
+$ ifconfig veth02 up
+```
