@@ -1,6 +1,11 @@
 # Open-Vswitch-Lab
 Practice for ovs
 
+### Install ovs
+```
+$ sudo apt-get install openvswitch-switch
+```
+
 ### Bridge Operation
 
 * Add Bridge
