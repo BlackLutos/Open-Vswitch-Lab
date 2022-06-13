@@ -1,7 +1,7 @@
 # Open-Vswitch-Lab
 Practice for ovs
 
-### Install ovs
+### Install OVS
 ```
 $ sudo apt-get install openvswitch-switch
 ```
