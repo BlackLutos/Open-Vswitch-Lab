@@ -31,6 +31,10 @@ $ ip netns add ns01
 ```
 $ ip netns del ns01
 ```
+* List Namespace
+```
+$ ip netns list
+```
 ### Create Veth to connect bridge and namespace
 
 * Create Veth pair
