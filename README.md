@@ -21,7 +21,7 @@ $ ovs-vsctl --if-exists del-br br0
 $ ovs-vsctl list-br
 ```
 
-### Linux Namespace
+### Linux Ip Namespace
 
 * Add Namespace
 ```
