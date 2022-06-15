@@ -15,11 +15,11 @@ $ sudo apt-get install openvswitch-switch
 
 * Add Bridge
 ```
-$ ovs-vsctl --may-exist add-br ${bridege_name}
+$ ovs-vsctl --may-exist add-br ${bridege_name} # Ex. br01
 ```
 * Delete Bridge
 ```
-$ ovs-vsctl --if-exists del-br ${bridege_name}
+$ ovs-vsctl --if-exists del-br ${bridege_name} # Ex. br01
 ```
 * List Bridge
 ```
@@ -30,11 +30,11 @@ $ ovs-vsctl list-br
 
 * Add Namespace
 ```
-$ ip netns add ${namespace_name}
+$ ip netns add ${namespace_name} # Ex. ns01
 ```
 * Delete Namespace
 ```
-$ ip netns del ${namespace_name}
+$ ip netns del ${namespace_name} # Ex. ns01
 ```
 * List Namespace
 ```
