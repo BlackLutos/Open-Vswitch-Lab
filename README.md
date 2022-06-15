@@ -48,7 +48,7 @@ $ ip link add ${veth_name_1} type veth peer name ${veth_name_2}
 ```
 * Connect Namespace
 ```
-$ ip link set veth01 netns ${namespace_name}
+$ ip link set ${veth_name} netns ${namespace_name}
 ```
 * Connect bridge and enable port
 ```
