@@ -30,11 +30,11 @@ $ ovs-vsctl list-br
 
 * Add Namespace
 ```
-$ ip netns add ${namespace_name} # Ex. ns01
+$ ip netns add ${namespace_name} 
 ```
 * Delete Namespace
 ```
-$ ip netns del ${namespace_name} # Ex. ns01
+$ ip netns del ${namespace_name} 
 ```
 * List Namespace
 ```
