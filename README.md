@@ -15,11 +15,11 @@ $ sudo apt-get install openvswitch-switch
 
 * Add Bridge
 ```
-$ ovs-vsctl --may-exist add-br ${bridege_name} # Ex. br01
+$ ovs-vsctl --may-exist add-br ${bridege_name} 
 ```
 * Delete Bridge
 ```
-$ ovs-vsctl --if-exists del-br ${bridege_name} # Ex. br01
+$ ovs-vsctl --if-exists del-br ${bridege_name} 
 ```
 * List Bridge
 ```
