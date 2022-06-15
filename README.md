@@ -15,11 +15,11 @@ $ sudo apt-get install openvswitch-switch
 
 * Add Bridge
 ```
-$ ovs-vsctl --may-exist add-br br0
+$ ovs-vsctl --may-exist add-br ${bridege_name}
 ```
 * Delete Bridge
 ```
-$ ovs-vsctl --if-exists del-br br0
+$ ovs-vsctl --if-exists del-br ${bridege_name}
 ```
 * List Bridge
 ```
@@ -30,11 +30,11 @@ $ ovs-vsctl list-br
 
 * Add Namespace
 ```
-$ ip netns add ns01
+$ ip netns add ${namespace_name}
 ```
 * Delete Namespace
 ```
-$ ip netns del ns01
+$ ip netns del ${namespace_name}
 ```
 * List Namespace
 ```
@@ -44,14 +44,14 @@ $ ip netns list
 
 * Create Veth pair
 ```
-$ ip link add veth01 type veth peer name veth02
+$ ip link add ${veth_name_1} type veth peer name ${veth_name_2}
 ```
 * Connect Namespace
 ```
-$ ip link set veth01 netns ns01
+$ ip link set veth01 netns ${namespace_name}
 ```
 * Connect bridge and enable port
 ```
-$ ovs-vsctl add-port br-int veth02
-$ ifconfig veth02 up
+$ ovs-vsctl add-port br-int ${veth_name}
+$ ifconfig ${veth_name} up
 ```
