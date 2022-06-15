@@ -1,6 +1,11 @@
 # Open-Vswitch-Lab
 Practice for ovs
 
+### Clone this Repo
+```
+$ git clone https://github.com/BlackLutos/Open-Vswitch-Lab.git
+```
+
 ### Install OVS
 ```
 $ sudo apt-get install openvswitch-switch
