@@ -38,7 +38,7 @@ ifconfig veth-ns3-br up
 ifconfig veth-ns4-br up
 
 
-
+bash -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
 ip netns exec ns1 ifconfig veth-ns1 192.168.15.1/24 up
 # ip netns exec router ifconfig veth-router-ns1 192.168.11.1/24 up
@@ -64,10 +64,21 @@ sudo ip netns exec ns3 ip route
 sudo ip netns exec ns4 ip route
 
 ip netns exec ns1 ip route add default via 192.168.15.254
-ip addr add 10.0.0.254/24 dev v-bridge
+ip netns exec ns2 ip route add default via 192.168.15.254
+ip netns exec ns3 ip route add default via 192.168.15.254
+ip netns exec ns4 ip route add default via 192.168.15.254
+
+ip addr add 192.168.15.254/24 dev v-bridge
+
+iptables -t nat -A POSTROUTING -s 192.168.15.0/24 -o ens33 -j MASQUERADE
+iptables -F
+iptables -P FORWARD ACCEPT
 
 # Execute test cases
 ip netns exec ns1 ping -c 1 8.8.8.8
+ip netns exec ns2 ping -c 1 8.8.8.8
+ip netns exec ns3 ping -c 1 8.8.8.8
+ip netns exec ns4 ping -c 1 8.8.8.8
 # ip netns exec ns1 ping -c 1 192.168.15.3
 # ip netns exec ns1 ping -c 1 192.168.15.4
 
