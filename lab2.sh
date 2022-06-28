@@ -63,12 +63,12 @@ sudo ip netns exec ns2 ip route
 sudo ip netns exec ns3 ip route
 sudo ip netns exec ns4 ip route
 
-ip netns exec ns1 ip route add default via 192.168.15.254
-ip netns exec ns2 ip route add default via 192.168.15.254
-ip netns exec ns3 ip route add default via 192.168.15.254
-ip netns exec ns4 ip route add default via 192.168.15.254
+ip netns exec ns1 ip route add default via 192.168.15.5
+ip netns exec ns2 ip route add default via 192.168.15.5
+ip netns exec ns3 ip route add default via 192.168.15.5
+ip netns exec ns4 ip route add default via 192.168.15.5
 
-ip addr add 192.168.15.254/24 dev v-bridge
+ip addr add 192.168.15.5/24 dev v-bridge
 
 iptables -t nat -A POSTROUTING -s 192.168.15.0/24 -o ens33 -j MASQUERADE
 iptables -F
@@ -79,20 +79,22 @@ ip netns exec ns1 ping -c 1 8.8.8.8
 ip netns exec ns2 ping -c 1 8.8.8.8
 ip netns exec ns3 ping -c 1 8.8.8.8
 ip netns exec ns4 ping -c 1 8.8.8.8
-# ip netns exec ns1 ping -c 1 192.168.15.3
-# ip netns exec ns1 ping -c 1 192.168.15.4
 
-# ip netns exec ns2 ping -c 1 192.168.15.1
-# ip netns exec ns2 ping -c 1 192.168.15.3
-# ip netns exec ns2 ping -c 1 192.168.15.4
+ip netns exec ns1 ping -c 1 192.168.15.2
+ip netns exec ns1 ping -c 1 192.168.15.3
+ip netns exec ns1 ping -c 1 192.168.15.4
 
-# ip netns exec ns3 ping -c 1 192.168.15.1
-# ip netns exec ns3 ping -c 1 192.168.15.2
-# ip netns exec ns3 ping -c 1 192.168.15.3
+ip netns exec ns2 ping -c 1 192.168.15.1
+ip netns exec ns2 ping -c 1 192.168.15.3
+ip netns exec ns2 ping -c 1 192.168.15.4
 
-# ip netns exec ns4 ping -c 1 192.168.15.1
-# ip netns exec ns4 ping -c 1 192.168.15.2
-# ip netns exec ns4 ping -c 1 192.168.15.3
+ip netns exec ns3 ping -c 1 192.168.15.1
+ip netns exec ns3 ping -c 1 192.168.15.2
+ip netns exec ns3 ping -c 1 192.168.15.3
+
+ip netns exec ns4 ping -c 1 192.168.15.1
+ip netns exec ns4 ping -c 1 192.168.15.2
+ip netns exec ns4 ping -c 1 192.168.15.3
 
 
 
