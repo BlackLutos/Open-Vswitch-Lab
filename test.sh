@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "hello,world"
+echo "Hi HI"
 exec bash
