@@ -29,6 +29,7 @@ def topo_start():
 	topo = design_Topo()
 	net = Mininet(topo=topo,controller = RemoteController,link = TCLink)
 	net.start()
+	sh.bash("topo_flow.sh")
 	CLI(net)
 	# insert automatically
 	net.stop()
