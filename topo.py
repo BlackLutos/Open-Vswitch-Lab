@@ -1,5 +1,6 @@
 import os
 import time
+import sh
 from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.link import TCLink
@@ -9,6 +10,7 @@ from mininet.util import quietRun
 from mininet.node import RemoteController
 from mininet.term import makeTerm
 from mininet.node import OVSSwitch
+
 
 class design_Topo(Topo):
 	def __init__(self,**opts):
@@ -28,9 +30,10 @@ def topo_start():
 	net = Mininet(topo=topo,controller = RemoteController,link = TCLink)
 	net.start()
 	CLI(net)
-	# insert automatically 
+	# insert automatically
 	net.stop()
 if __name__=='__main__':
 	#setLogLevel('info')
+	sh.mn("-c")
 	topo_start()
 
