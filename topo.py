@@ -41,6 +41,13 @@ def topo_start():
 	h2 = hosts[1]
 	h1.cmd('ifconfig h1-eth0 192.168.15.2/24 up')
 	h2.cmd('ifconfig h2-eth0 192.168.15.3/24 up')
+
+	switch = net.switches
+	s1 = switch[0]
+	s2 = switch[1]
+	s3 = switch[2]
+
+	s1.cmd('ifconfig s1-eth1 192.168.15.4/24 up')
 	# print(hosts)
 	CLI(net)
 	net.stop()
