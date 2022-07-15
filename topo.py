@@ -34,10 +34,13 @@ def topo_start():
 	topo = design_Topo()
 	net = Mininet(topo=topo,controller = RemoteController,link = TCLink)
 	net.start()
-	# sh.bash("topo_flow.sh")
+	sh.bash("topo_flow.sh")
 	# insert automatically
 	hosts = net.hosts
-	hosts[0].cmd('ifconfig h1-eth0 192.168.15.2/24 up')
+	h1 = hosts[0]
+	h2 = hosts[1]
+	h1.cmd('ifconfig h1-eth0 192.168.15.2/24 up')
+	h2.cmd('ifconfig h2-eth0 192.168.15.3/24 up')
 	# print(hosts)
 	CLI(net)
 	net.stop()
