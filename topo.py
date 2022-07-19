@@ -46,7 +46,14 @@ def topo_start():
 	s2 = switch[1]
 	s3 = switch[2]
 
-	s1.cmd('ifconfig s1-eth1 192.168.15.5/24 up')
+	s1.cmd('ip addr add 192.168.15.10/24 dev s1')
+	s1.cmd('ifconfig s1 up')
+
+	s2.cmd('ip addr add 192.168.15.20/24 dev s2')
+	s2.cmd('ifconfig s2 up')
+
+	s3.cmd('ip addr add 192.168.15.30/24 dev s3')
+	s3.cmd('ifconfig s3 up')
 	# print(hosts)
 	CLI(net)
 	net.stop()
