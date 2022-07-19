@@ -46,14 +46,26 @@ def topo_start():
 	s2 = switch[1]
 	s3 = switch[2]
 
+	s1.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
 	s1.cmd('ip addr add 192.168.15.10/24 dev s1')
 	s1.cmd('ifconfig s1 up')
+	s1.cmd('iptables -t nat -A POSTROUTING -s 192.168.15.0/24 -o ens33 -j MASQUERADE')
+	s1.cmd('iptables -F')
+	s1.cmd('iptables -P FORWARD ACCEPT')
 
+	s2.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
 	s2.cmd('ip addr add 192.168.15.20/24 dev s2')
 	s2.cmd('ifconfig s2 up')
+	s2.cmd('iptables -t nat -A POSTROUTING -s 192.168.15.0/24 -o ens33 -j MASQUERADE')
+	s2.cmd('iptables -F')
+	s2.cmd('iptables -P FORWARD ACCEPT')
 
+	s3.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
 	s3.cmd('ip addr add 192.168.15.30/24 dev s3')
 	s3.cmd('ifconfig s3 up')
+	s3.cmd('iptables -t nat -A POSTROUTING -s 192.168.15.0/24 -o ens33 -j MASQUERADE')
+	s3.cmd('iptables -F')
+	s3.cmd('iptables -P FORWARD ACCEPT')
 	# print(hosts)
 	CLI(net)
 	net.stop()
