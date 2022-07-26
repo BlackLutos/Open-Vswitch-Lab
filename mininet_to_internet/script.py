@@ -23,6 +23,7 @@ def topo_start():
     s1.cmd('sysctl -w net.ipv4.ip_forward=1') # 開啟封包傳遞
     s1.cmd('sysctl -p') # 立刻讓該設定生效
     s1.cmd('iptables -t nat -A POSTROUTING -s 192.168.0.1/24 -o ens33 -j MASQUERADE')
+    # -t table -A append -o out-interface
     s1.cmd('cp ./isc-dhcp-server /etc/default')
     s1.cmd('cp ./dhcpd.conf /etc/dhcp')
     s1.cmd('sudo systemctl restart isc-dhcp-server')
