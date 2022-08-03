@@ -40,7 +40,10 @@ def topo_start():
 	h1 = hosts[0]
 	h2 = hosts[1]
 	h1.cmd('ifconfig h1-eth0 192.168.15.2/24 up')
+	h1.cmd('ip route add default via 192.168.15.10')
+
 	h2.cmd('ifconfig h2-eth0 192.168.15.3/24 up')
+	h2.cmd('ip route add default via 192.168.15.20')
 	switch = net.switches
 	s1 = switch[0]
 	s2 = switch[1]
