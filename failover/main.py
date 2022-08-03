@@ -44,5 +44,6 @@ def topo_start():
 if __name__=='__main__':
     os.system("mn -c")
     topo_start()
+    print('hello,world')
 
         
