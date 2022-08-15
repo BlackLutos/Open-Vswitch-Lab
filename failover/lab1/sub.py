@@ -29,13 +29,21 @@ def topo_start():
     h1 = hosts[0]
     h2 = hosts[1]
     s1 = switch[0]
-    h1.cmd('ifconfig h1-eth0 192.168.1.100/24 up')
-    h2.cmd('ifconfig h2-eth0 192.168.1.200/24 up')
+    h1.cmd('ifconfig h1-eth0 192.168.1.100/24')
+    h1.cmd('ifconfig h1-eth0 up')
+    #h1.cmd('ip route add default via 192.168.1.1')
+    h1.cmd('ip route add default gw 192.168.1.1')
+
+    h2.cmd('ifconfig h2-eth0 192.168.1.200/24')
+    h2.cmd('ifconfig h2-eth0 up')
+    #h2.cmd('ip route add default via 192.168.1.1')
+    h2.cmd('ip route add default gw 192.168.1.1')
+    
     s1.cmd('ip addr add 192.168.1.1/24 dev s1')
     s1.cmd('ifconfig s1 up')
     s1.cmd('sysctl -w net.ipv4.ip_forward=1')
     s1.cmd('sysctl -p')
-    s1.cmd('iptables -t nat -A POSTROUTING -s 192.168.1.0 -o ens33 -j MASQUERADE')
+    s1.cmd('iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ens33 -j MASQUERADE')
     s1.cmd('iptables -F')
     s1.cmd('iptables -P FORWARD ACCEPT')
     CLI(net)
