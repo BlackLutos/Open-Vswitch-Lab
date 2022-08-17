@@ -10,6 +10,8 @@ $ git clone https://github.com/BlackLutos/Open-Vswitch-Lab.git
 ```
 $ sudo apt-get install openvswitch-switch
 ```
+### DNS Setting
+[DNS-Setting](https://blog.gtwang.org/tips/google-public-dns/)
 
 ### Bridge Operation
 
