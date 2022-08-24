@@ -25,5 +25,5 @@ sudo systemctl restart isc-dhcp-server
 udhcpc -i h-eth1
 
 brctl show
-ip netns exec h1 /bin/bash --rcfile <(echo "PS1=\"namespace h1> \"")
+# ip netns exec h1 /bin/bash --rcfile <(echo "PS1=\"namespace h1> \"")
 exec bash
