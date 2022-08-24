@@ -22,8 +22,9 @@ iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o ens33 -j MASQUERADE
 cp ./isc-dhcp-server /etc/default
 cp ./dhcpd.conf /etc/dhcp
 sudo systemctl restart isc-dhcp-server
-udhcpc -i h-eth1
+# ip netns exec netns h1 udhcpc -i h-eth1
 
 brctl show
-# ip netns exec h1 /bin/bash --rcfile <(echo "PS1=\"namespace h1> \"")
+ip netns exec h1 /bin/bash --rcfile <(echo "PS1=\"namespace h1> \"")
+
 exec bash
