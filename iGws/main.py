@@ -1,5 +1,6 @@
+import os
 
-def port_select():
+def ovs_port_select():
     port = input("Please input port number: ")
     return str(port)
 
@@ -13,6 +14,8 @@ def port_select():
 
 
 if __name__=='__main__':
-    port = port_select()
-    print(port)
+    # port = ovs_port_select()
+    os.system('sudo bash create_linux_bridge.sh')
+    os.system('sudo bash ovs_create.sh')
+
 	
