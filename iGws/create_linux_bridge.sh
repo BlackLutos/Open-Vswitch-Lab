@@ -10,10 +10,10 @@ brctl addif br0 br-eth1
 brctl addif br0 br-eth2     
 brctl addif br0 br-eth3
 
-ip link set h-eth1 netns h1
+ip link set h-eth3 netns h1
 
 ifconfig br0 192.168.0.1/24 up
-ifconfig br-eth1 up
+ifconfig br-eth3 up
 
 sysctl -w net.ipv4.ip_forward=1
 sysctl -p
