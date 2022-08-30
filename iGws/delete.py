@@ -1,5 +1,8 @@
 import os
+import sh
 
-os.system('sudo mn -c')
-os.system('sudo bash delete_linux_bridge.sh')
-os.system('sudo bash ovs_delete.sh')
+print('deleting...')
+sh.bash('delete_linux_bridge.sh')
+sh.bash('ovs_delete.sh')
+sh.mn('-c')
+print('Finish !!!')

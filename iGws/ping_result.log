@@ -1,15 +1,8 @@
-PING google.com (172.217.163.46) 56(84) bytes of data.
-64 bytes from tsa01s13-in-f14.1e100.net (172.217.163.46): icmp_seq=1 ttl=127 time=13.4 ms
-64 bytes from tsa01s13-in-f14.1e100.net (172.217.163.46): icmp_seq=2 ttl=127 time=12.3 ms
-64 bytes from tsa01s13-in-f14.1e100.net (172.217.163.46): icmp_seq=3 ttl=127 time=12.8 ms
-64 bytes from tsa01s13-in-f14.1e100.net (172.217.163.46): icmp_seq=4 ttl=127 time=14.6 ms
-64 bytes from tsa01s13-in-f14.1e100.net (172.217.163.46): icmp_seq=5 ttl=127 time=15.2 ms
-64 bytes from tsa01s13-in-f14.1e100.net (172.217.163.46): icmp_seq=6 ttl=127 time=13.6 ms
-64 bytes from tsa01s13-in-f14.1e100.net (172.217.163.46): icmp_seq=7 ttl=127 time=13.9 ms
-64 bytes from tsa01s13-in-f14.1e100.net (172.217.163.46): icmp_seq=8 ttl=127 time=14.1 ms
-64 bytes from tsa01s13-in-f14.1e100.net (172.217.163.46): icmp_seq=9 ttl=127 time=14.5 ms
-64 bytes from tsa01s13-in-f14.1e100.net (172.217.163.46): icmp_seq=10 ttl=127 time=13.3 ms
+PING google.com (172.217.160.78) 56(84) bytes of data.
+64 bytes from tsa01s09-in-f14.1e100.net (172.217.160.78): icmp_seq=1 ttl=127 time=14.0 ms
+64 bytes from tsa01s09-in-f14.1e100.net (172.217.160.78): icmp_seq=2 ttl=127 time=14.1 ms
+64 bytes from tsa01s09-in-f14.1e100.net (172.217.160.78): icmp_seq=3 ttl=127 time=15.4 ms
 
 --- google.com ping statistics ---
-10 packets transmitted, 10 received, 0% packet loss, time 9018ms
-rtt min/avg/max/mdev = 12.307/13.815/15.243/0.845 ms
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 14.007/14.521/15.432/0.645 ms

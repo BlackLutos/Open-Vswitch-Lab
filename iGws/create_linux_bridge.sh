@@ -29,7 +29,7 @@ brctl show
 # ip netns exec h1 /bin/bash udhcpc -i h-eth3
 # ip netns exec h1 /bin/bash --rcfile <(echo "PS1=\"namespace h1> \"")
 echo 'waiting for h1 ping google.com...'
-ip netns exec h1 ping google.com -c 10 > ping_result.log
+ip netns exec h1 ping google.com -c 3 > ping_result.log
 cat ping_result.log
 
 exec bash
