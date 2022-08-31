@@ -2,11 +2,14 @@ import os
 import sh
 
 def ovs_port_select():
-    port = input("Please input port number (like ex. eth3): ")# judge if exist 
-    return str(port) # list of interface 
+    port = input("Please input port number (like ex. eth3): ") 
+    #judge if exist 
+    return str(port)
+    #list of interface 
 
 if __name__=='__main__':
-    os.system('brctl show') # network manager
+    os.system('brctl show') 
+    #network manager
     os.system('ovs-vsctl show')
     print('-------------------------------------------------------------------') 
     port = ovs_port_select()
@@ -26,10 +29,11 @@ if __name__=='__main__':
     os.system('ifconfig br0 0.0.0.0/24')
     os.system('ifconfig ovs-br0 192.168.0.1/24 up')
     os.system('ifconfig ' + eth_port + ' up')
-    # add flow
+    os.system('ovs-ofctl add-flow ovs-br0 priority=1,in_port=' + eth_port + ',actions=NORMAL')
+    os.system('ovs-ofctl add-flow ovs-br0 priority=1,in_port=LOCAL,actions=output:'+ eth_port)
+    #add flow
     os.system('brctl show')
     os.system('ovs-vsctl show') 
-
     # print(diable_eth_port)
     # os.system('ip link add ' + eth_port + 'type veth peer name ' + h_eth_port)
     # os.system('ovs-vsctl add-port ovs-br0 ' + port)
