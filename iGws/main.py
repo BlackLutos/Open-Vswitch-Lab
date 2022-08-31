@@ -6,6 +6,9 @@ def ovs_port_select():
     return str(port)
 
 if __name__=='__main__':
+    os.system('brctl show')
+    os.system('ovs-vsctl show')
+    print('-------------------------------------------------------------------') 
     port = ovs_port_select()
 
     eth_port = 'br-' + port
