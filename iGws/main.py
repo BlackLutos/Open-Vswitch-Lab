@@ -2,11 +2,11 @@ import os
 import sh
 
 def ovs_port_select():
-    port = input("Please input port number (like ex. eth3): ")
-    return str(port)
+    port = input("Please input port number (like ex. eth3): ")# judge if exist 
+    return str(port) # list of interface 
 
 if __name__=='__main__':
-    os.system('brctl show')
+    os.system('brctl show') # network manager
     os.system('ovs-vsctl show')
     print('-------------------------------------------------------------------') 
     port = ovs_port_select()
@@ -26,7 +26,7 @@ if __name__=='__main__':
     os.system('ifconfig br0 0.0.0.0/24')
     os.system('ifconfig ovs-br0 192.168.0.1/24 up')
     os.system('ifconfig ' + eth_port + ' up')
-
+    # add flow
     os.system('brctl show')
     os.system('ovs-vsctl show') 
 
