@@ -32,15 +32,17 @@ iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o ens33 -j MASQUERADE
 cp ./isc-dhcp-server /etc/default
 cp ./dhcpd.conf /etc/dhcp
 sudo systemctl restart isc-dhcp-server
-ip netns exec h1 udhcpc -i h-eth3
+# ip netns exec h1 udhcpc -i h-eth3
 
 # brctl show
 nmcli connection show
 
 # ip netns exec h1 /bin/bash udhcpc -i h-eth3
 # ip netns exec h1 /bin/bash --rcfile <(echo "PS1=\"namespace h1> \"")
-echo 'waiting for h1 ping google.com...'
-ip netns exec h1 ping google.com -c 3 > ping_result.log
-cat ping_result.log
+
+
+# echo 'waiting for h1 ping google.com...'
+# ip netns exec h1 ping google.com -c 3 > ping_result.log
+# cat ping_result.log
 
 exec bash
