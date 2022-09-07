@@ -78,7 +78,8 @@ if __name__=='__main__':
     
     #add flow
     os.system('nmcli connection show')
-    os.system('ovs-vsctl show') 
+    os.system('ovs-vsctl show')
+    # os.system('ryu-manager --verbose --observe-links simple_switch_13_exp.py &') 
     
 
     # ovs-ofctl dump-flows ovs-br0 --protocols=OpenFlow13
