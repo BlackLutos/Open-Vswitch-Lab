@@ -24,6 +24,7 @@ ip link set h-eth3 netns h1
 # sudo nmcli con modify br0 bridge.stp yes
 sudo nmcli con modify br0 bridge.stp no
 sudo nmcli con modify br0 ipv4.addresses '192.168.0.1/24'
+sudo nmcli con modify br0 ipv4.dns '8.8.8.8'
 sudo nmcli con modify br0 ipv4.method manual
 sudo nmcli con up br0 
 # sudo nmcli con modify br0 ipv4.addresses 192.168.0.1/24
@@ -37,8 +38,8 @@ iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o ens33 -j MASQUERADE
 cp ./isc-dhcp-server /etc/default
 cp ./dhcpd.conf /etc/dhcp
 sudo systemctl restart isc-dhcp-server
-# sudo ip netns exec h1 udhcpc -i h-eth3
-sudo ip netns exec h1 ifconfig h-eth3 192.168.0.2/24 up
+sudo ip netns exec h1 udhcpc -i h-eth3
+# sudo ip netns exec h1 ifconfig h-eth3 192.168.0.2/24 up
 # brctl show
 nmcli connection show
 
