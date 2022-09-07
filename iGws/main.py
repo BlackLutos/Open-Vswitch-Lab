@@ -18,6 +18,20 @@ def ovs_port_select():
     #list of interface 
     #/etc/NetworkManager/system-connections
 
+def Toogle():
+    switch = input("On/Off")
+
+    return switch
+
+def Supported():
+    return 0
+def Setting():
+    return 0
+def info():
+    return 0
+def Current_config():
+    return 0
+
 if __name__=='__main__':
     # os.system('brctl show') 
     os.system('nmcli connection show')
@@ -67,7 +81,7 @@ if __name__=='__main__':
     os.system('ovs-vsctl show') 
     
 
-
+    # ovs-ofctl dump-flows ovs-br0 --protocols=OpenFlow13
     # ip netns exec h1 /bin/bash --rcfile <(echo "PS1=\"namespace h1> \"")
     # ip netns exec h1 ping google.com -c 3
 
