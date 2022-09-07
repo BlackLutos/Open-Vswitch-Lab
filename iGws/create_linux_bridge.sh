@@ -24,9 +24,10 @@ ip link set h-eth3 netns h1
 # sudo nmcli con modify br0 bridge.stp yes
 sudo nmcli con modify br0 bridge.stp no
 sudo nmcli con modify br0 ipv4.addresses '192.168.0.1/24'
-sudo nmcli con modify br0 ipv4.dns '8.8.8.8'
+# sudo nmcli con modify br0 ipv4.dns '8.8.8.8'
 sudo nmcli con modify br0 ipv4.method manual
-sudo nmcli con up br0 
+sudo nmcli con up br0
+sudo nmcli con up bridge-slave-br-eth3
 # sudo nmcli con modify br0 ipv4.addresses 192.168.0.1/24
 
 ifconfig br-eth3 up
@@ -42,7 +43,6 @@ sudo ip netns exec h1 udhcpc -i h-eth3
 # sudo ip netns exec h1 ifconfig h-eth3 192.168.0.2/24 up
 # brctl show
 nmcli connection show
-
 # ip netns exec h1 /bin/bash udhcpc -i h-eth3
 # ip netns exec h1 /bin/bash --rcfile <(echo "PS1=\"namespace h1> \"")
 # ip netns exec h1 ifconfig h-eth3 192.168.0.2/24 up

@@ -8,6 +8,6 @@ sh.bash('ovs_create.sh')
 # os.system('brctl show')
 os.system('nmcli connection show')
 os.system('ovs-vsctl show')
-os.system('ifconfig')
+os.system('ip netns exec h1 ifconfig')
 print('Finish !!!')
 #topology graph

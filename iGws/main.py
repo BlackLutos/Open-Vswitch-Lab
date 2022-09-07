@@ -62,8 +62,8 @@ if __name__=='__main__':
 
     eth_port = 'br-' + port
     h_eth_port = 'h-' + port
-
-    diable_eth_port = 'ifconfig ' + eth_port + ' down'
+    # sudo nmcli con up bridge-slave-br-eth3
+    diable_eth_port = 'nmcli con down ' + 'bridge-slave-' + eth_port
     del_eth_port = 'sudo nmcli connection delete ' + br_port
     ovs_add_port = 'ovs-vsctl add-port ovs-br0 ' + eth_port
 
@@ -73,8 +73,8 @@ if __name__=='__main__':
     os.system('ifconfig br0 0.0.0.0/24')
     os.system('ifconfig ovs-br0 192.168.0.1/24 up')
     os.system('ifconfig ' + eth_port + ' up')
-    os.system('ovs-ofctl add-flow ovs-br0 priority=1,in_port=' + eth_port + ',actions=NORMAL')
-    os.system('ovs-ofctl add-flow ovs-br0 priority=1,in_port=LOCAL,actions=output:'+ eth_port)
+    # os.system('ovs-ofctl add-flow ovs-br0 priority=1,in_port=' + eth_port + ',actions=NORMAL')
+    # os.system('ovs-ofctl add-flow ovs-br0 priority=1,in_port=LOCAL,actions=output:'+ eth_port)
     
     #add flow
     os.system('nmcli connection show')
